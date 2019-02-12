@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using WebApi.DAL.Models.DomainModel.Base;
+
+namespace WebApi.DAL.Models.DomainModel
+{
+    public class Group : BaseModel<int>
+    {
+        public string Name { get; set; }
+        public ICollection<ClientGroup> ClientGroups { get; set; }
+    }
+}
