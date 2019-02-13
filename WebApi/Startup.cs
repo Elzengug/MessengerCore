@@ -85,6 +85,10 @@ namespace WebApi
             services.AddTransient<IUserProvider, UserProvider>();
             services.AddTransient<IGroupProvider, GroupProvider>();
             services.AddTransient<IGroupRepository, GroupRepository>();
+            services.AddTransient<IClientProvider, ClientProvider>();
+            services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IClientGroupProvider, ClientGroupProvider>();
+            services.AddTransient<IClientGroupRepository, ClientGroupRepository>();
             services.AddTransient<IDbContext, MessengerDbContext>();
         }
 

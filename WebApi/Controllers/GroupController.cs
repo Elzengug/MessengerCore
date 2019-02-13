@@ -41,5 +41,21 @@ namespace WebApi.Controllers
             ICollection<Group> groups = await _groupProvider.GetAllGroupsAsync();
             return Ok(groups);
         }
+        [HttpDelete]
+        [Route("Delete")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _groupProvider.RemoveGroupAsync(id);
+            return Ok();
+        }
+        [HttpPost]
+        [Route("Edit")]
+        public async Task<IActionResult> Edit(GroupViewModel model)
+        {
+            var group = await _groupProvider.GetGroupByIdAsync(model.Id);
+            group.Name = model.Name;
+            await _groupProvider.EditGroupAsync(group);
+            return Ok();
+        }
     }
 }
